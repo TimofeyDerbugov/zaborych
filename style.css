@@ -533,3 +533,90 @@ footer {
       margin: 20px;
     }
   }
+
+
+
+
+  .doctes {
+    font-family: sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .gallery-container {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+  }
+  
+  .gallery {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+  }
+  
+  .gallery img {
+    height: 250px;
+    width: auto;
+    border-radius: 10px;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+  
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+    user-select: none;
+  }
+  
+  .left {
+    left: 0;
+  }
+  
+  .right {
+    right: 0;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .gallery img {
+      height: 180px;
+    }
+  
+    .nav-button {
+      font-size: 1.5rem;
+      padding: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .gallery img {
+      height: 140px;
+    }
+  
+    .nav-button {
+      display: none; /* Кнопки скрываются на маленьких экранах, используется свайп */
+    }
+  }
+  
+  
+  
