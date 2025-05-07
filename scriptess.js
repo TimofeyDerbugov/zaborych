@@ -167,3 +167,14 @@ document.getElementById("calcBtn").addEventListener("click", function () {
 ИТОГО: ${Math.round(obshaya_zena)} руб. + ${dostavka_zena} руб. - доставка
 `;
 });
+
+
+// MARK: Галерея проектов
+function scrollGallery(direction) {
+    const gallery = document.getElementById("gallery");
+    const scrollAmount = gallery.clientWidth * 0.8; // Прокручивает на 80% ширины галереи
+    gallery.scrollBy({
+      left: direction * scrollAmount,
+      behavior: "smooth"
+    });
+  }
