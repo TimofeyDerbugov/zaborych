@@ -618,5 +618,8 @@ footer {
     }
   }
   
-  
-  
+  @media (max-width: 700){
+	  h2 {
+		font-size: 30px  
+	  }
+  }
