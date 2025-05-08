@@ -619,7 +619,7 @@ footer {
   }
   
   @media (max-width: 700){
-	  h2 {
+	  .preview h2, portfolio-title {
 		font-size: 30px  
 	  }
   }
