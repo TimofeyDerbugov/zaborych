@@ -186,15 +186,31 @@ body {
     top: 0%;
     margin-top: 0px;
 }
-.feedback-form {
-	background-color: #fff;
-	padding-left: 5%;
+
+@media (min-width: 639px) {
+  .feedback-form {
+    max-height: 550px;
+  background-color: #fff;
+  padding-left: 5%;
     padding-right: 5%;
-	border-radius: 12px;
-	box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-	width: 100%;
-	color: #51FF00;
-	background-color: #212121;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  color: #51FF00;
+  background-color: #212121;
+  }
+}
+
+.feedback-form {
+  /* max-height: 500px; */
+background-color: #fff;
+padding-left: 5%;
+  padding-right: 5%;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+width: 100%;
+color: #51FF00;
+background-color: #212121;
 }
 .feedback-form h1 {
 	font-size: 44px;
