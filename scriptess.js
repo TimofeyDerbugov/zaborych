@@ -178,3 +178,62 @@ function scrollGallery(direction) {
       behavior: "smooth"
     });
   }
+
+
+
+
+
+document.getElementById("pdfBtn").addEventListener("click", function () {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  // Подключаем шрифт
+  doc.addFileToVFS("Roboto-Regular.ttf", robotoFont); // robotoFont — переменная из roboto.js
+  doc.addFont("Roboto-Regular.ttf", "Roboto", "normal");
+  doc.setFont("Roboto");
+
+  // Получаем данные заново
+  const getNum = id => parseFloat(document.getElementById(id).value || "0");
+  const getInt = id => parseInt(document.getElementById(id).value || "0");
+
+  const perimeter = getNum("perimeter");
+  const material = getInt("material");
+  const zazor = getInt("zazor");
+  const kalitka = getInt("kalitka");
+  const vorota = getInt("vorota");
+  const demontazh = getInt("demontazh");
+  const distance = getNum("distance");
+
+  // Берём текст из вывода (после расчёта)
+  const resultText = document.getElementById("output").textContent;
+
+  // Разбиваем строки
+  const rows = resultText
+    .split("\n")
+    .filter(line => line.trim() !== "")
+    .map(line => {
+      const parts = line.split(":");
+      return parts.length > 1
+        ? [parts[0].trim(), parts.slice(1).join(":").trim()]
+        : [line.trim(), ""];
+    });
+
+  doc.setFontSize(16);
+  doc.text("Расчет стоимости забора", 14, 20);
+
+  doc.autoTable({
+    startY: 30,
+    head: [["Параметр", "Значение"]],
+    body: rows,
+    styles: {
+      font: "Roboto",
+      fontSize: 11
+    },
+    headStyles: {
+      font: "Roboto",
+      fontStyle: "normal"
+    }
+  });
+
+  doc.save("raschet-zabora.pdf");
+});
